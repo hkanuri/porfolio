@@ -1,4 +1,4 @@
-import {BrowserRouter, Route} from "react-router-dom";
+import {BrowserRouter, Route, Switch} from "react-router-dom";
 import './App.css';
 import Home from "./pages/Home";
 import Contact from "./pages/Contact";
@@ -10,9 +10,22 @@ function App() {
   <BrowserRouter>
   
   <Navbar/>
-  <Route exact path= "/" component = {Home} />
-  <Route path= "/contact" component = {Contact} />
-  <Route path= "/portfolio" component = {Portfolio} />
+  <div>
+        <Switch>
+          <Route exact path={"/"}>
+            <Home/>
+            </Route>
+
+            <Route exact path={"/Contact"}>
+            <Contact/>
+            </Route>
+
+            <Route exact path={"/Portfolio"}>
+            <Portfolio/>
+            </Route>
+        </Switch>
+       
+      </div>
 
   
   </BrowserRouter>
